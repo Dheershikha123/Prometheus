@@ -1,0 +1,13 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "NORTHSTAR Decision Filter",
+      "trigger": "UserPromptSubmit",
+      "action": {
+        "type": "agent",
+        "prompt": "Before acting on the user's request, run the NORTHSTAR decision filter from `NORTHSTAR.md`:\n\n1. Does this work make the **pressure → behaviour → budget → measured workload** chain stronger, clearer, or more testable?\n2. Does every new internal variable have a causal effect and a test?\n3. Is everything bounded (memory, work, queues, history)?\n4. Does it keep the system deterministic and reproducible by default?\n5. Can we measure the claim it supports?\n\nIf the answer to (1) is no, say so and ask the developer to confirm before proceeding. If (2)–(5) would be violated, flag the specific violation before writing any code.\n\nThis check is lightweight — a one-line answer per criterion is enough. Only block if there is a genuine conflict with the NORTHSTAR thesis."
+      }
+    }
+  ]
+}
